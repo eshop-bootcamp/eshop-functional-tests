@@ -1,21 +1,32 @@
 package com.eshop.selenium;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by LNaveen on 12/14/16.
  */
 public class BuyersLandingPageTest extends SeleniumBase {
 
+    private WebDriver driver;
+
+    @Before
+    public void setUp()
+    {
+        driver = getWebDriver("/#/landingpagebuyer");
+    }
+
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
+
     @Test
     public void shouldDisplaySeededCategoriesonLandingPage() throws InterruptedException {
-        WebDriver driver = getWebDriver("/#/landingpagebuyer");
         WebElement ddlCategory = driver.findElement(By.cssSelector("#ddlCategory"));
         ddlCategory.click();
 
@@ -25,8 +36,6 @@ public class BuyersLandingPageTest extends SeleniumBase {
 
         String html = ddlCategory.getText();
         assert (html).contains("Clothing");
-
-        driver.quit();
     }
 
 
