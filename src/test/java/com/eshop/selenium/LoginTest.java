@@ -20,7 +20,7 @@ public class LoginTest {
 
     private static final String CHROME_DRIVER_PROPERTY_NAME = "webdriver.chrome.driver";
     private static final String CHROME_DRIVER_PATH = "./src/test/resources/selenium_chrome_driver_mac";
-    private static final String LOGIN_URL = "http://localhost:3001/#/login";
+    private static final String LOGIN_URL = "http://localhost:3131/#/login";
     private WebDriver driver;
 
     @Before
@@ -40,7 +40,7 @@ public class LoginTest {
         WebElement username = driver.findElement(By.id("username"));
         username.sendKeys("username");
 
-        WebElement password = driver.findElement(By.id("username"));
+        WebElement password = driver.findElement(By.id("password"));
         password.sendKeys("password");
 
         WebElement loginButton = driver.findElement(By.id("login_button"));
